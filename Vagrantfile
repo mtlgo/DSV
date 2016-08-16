@@ -11,7 +11,8 @@ Vagrant.configure("2") do |config|
       manager.vm.hostname = "manager"
       manager.vm.network "forwarded_port", guest: 4243, host: 4243
       manager.vm.network "private_network", ip: "10.0.0.10"
-      manager.vm.provision :shell, path: "scripts/manager.sh" 
+      manager.vm.provision :shell, path: "scripts/manager.sh"
+      manager.vm.provision :shell, path: "scripts/createServices.sh"  
   end
   
   (1..2).each do |i|
